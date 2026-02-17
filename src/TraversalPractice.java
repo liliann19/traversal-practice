@@ -9,11 +9,11 @@ public class TraversalPractice {
    */
   public static void printOddNodes(Node<Integer> node) {
     if (node == null) return;
+    printOddNodes(node.left);
+    printOddNodes(node.right);
     if (node.value % 2 != 0) {
-      printOddNodes(node.left);
-      printOddNodes(node.right);
       System.out.println(node.value);
-    }
+    } 
   }
 
   /**
