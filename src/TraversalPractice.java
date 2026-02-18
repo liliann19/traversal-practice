@@ -47,7 +47,8 @@ public class TraversalPractice {
    * @return the sum
    */
   public static int treeSum(Node<Integer> node) {
-    if (node == null) return 0;
+    if (node == null)
+      return 0;
     return treeSum(node.left) + treeSum(node.right) + node.value;
   }
 
@@ -61,7 +62,16 @@ public class TraversalPractice {
    * @return the max value
    */
   public static int maxVal(Node<Integer> node) {
-    return 0;
+    if (node == null)
+      return 0;
+    if (maxVal(node.left) > node.value) {
+      node.value = maxVal(node.left);
+    }
+    if (maxVal(node.right) > node.value) {
+      node.value = maxVal(node.right);
+    }
+
+    return node.value;
   }
 
   /**
