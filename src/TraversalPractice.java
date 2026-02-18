@@ -85,7 +85,16 @@ public class TraversalPractice {
    * @return The number of levels in the tree
    */
   public static <T> int numLevels(Node<T> node) {
-    return 0;
+    if (node == null) return 0;
+
+    int levels = 1;
+
+    if (numLevels(node.left) >= numLevels(node.right)) {
+      levels += numLevels(node.left);
+    } else {
+      levels += numLevels(node.right);
+    }
+    return levels;
   }
 
   public static void main(String[] args) {
